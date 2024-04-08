@@ -1,0 +1,97 @@
+/// 52 bit integer
+let an_age:int = 19;
+/// 64 bit float
+let y:float = 0.1;
+///structured data
+struct Person {
+    name: string,
+    age: int
+}
+///function definition
+function print_name(of_person: Person):void{
+
+    console.log("name of person:", of_person.name);
+}
+///Note the type of the object is always named when constructing the object
+let a_person = Person {
+    name:"A name",
+    age: an_age
+}
+/// Mentioning the object type is helpful when constructing objects as part of a function argument.
+print_name(Person {
+    name: "My name",
+    age: 1
+});
+///Every type can be extended using extensions, creating associative functions
+extension Person {
+    function greet(self:Person,times:int):void{
+        for(i in 0..times) {
+            console.log("Hello",self.name);
+        }
+    }
+}
+
+///The self argument is automatically passed to associative functions. 
+a_person.greet(10);
+
+///Enums can contain data
+enum Color {
+    Red,
+    Green,
+    Blue,
+    Hex(string)
+}
+
+///Implementation are like extensions but globally availably.
+implement Color {
+    function hex(self:Color):string {
+        let return_value = "";
+        match(self){
+            Color.Red => {
+                return_value = "#ff0000";
+            },
+            Color.Green => {
+                return_value = "#00ff00";
+            },
+            Color.Blue => {
+                return_value = "#0000ff";
+            },
+            Color.Hex(hex_str) => {
+                return_value = hex_str;
+            }
+        }
+        return return_value;
+    }
+}
+
+let my_color1 = Color.Red;
+let my_color2 = Color.Green;
+let my_color3 = Color.Blue;
+let my_color4 = Color.Hex("#ffffff");
+let my_color5 = Color.Hex("#000000");
+/// Enums use tuples when necessary for data representation
+console.log(my_color1);
+console.log(my_color2);
+console.log(my_color3);
+console.log(my_color4);
+console.log(my_color5);
+
+console.log(my_color1.hex());
+console.log(my_color2.hex());
+console.log(my_color3.hex());
+console.log(my_color4.hex());
+console.log(my_color5.hex());
+
+loop {
+    
+    let maybe_name = prompt("What's your name");
+    match(maybe_name){
+        Option.Some(name) => {
+            console.log("That's the end of this showcase,",name);
+            panic("");
+        },
+        Option.None => {
+            console.log("Please provide an name");
+        }
+    }
+}
