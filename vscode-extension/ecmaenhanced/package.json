@@ -1,0 +1,42 @@
+{
+    "name": "ecmaenhanced",
+    "displayName": "EcmaEnhanced",
+    "description": "",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.86.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "main": "./index.js",
+    "activationEvents": [
+        "onLanguage:ecmaenhanced"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "ecmaenhanced",
+                "aliases": [
+                    "Ecma Enhanced",
+                    "ecmaenhanced"
+                ],
+                "extensions": [
+                    ".ee"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "ecmaenhanced",
+                "scopeName": "source.ee",
+                "path": "./syntaxes/ecmaenhanced.tmLanguage.json"
+            }
+        ]
+    },
+
+    "dependencies": {
+        "vscode-languageclient": "^9.0.1"
+    }
+}

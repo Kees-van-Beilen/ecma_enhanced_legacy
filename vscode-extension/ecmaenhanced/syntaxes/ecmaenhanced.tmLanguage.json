@@ -1,0 +1,54 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Ecma Enhanced",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#classes"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.ecmaenhanced",
+				"match": "\\b(if|while|for|return|match|loop|import|as|from|export)\\b"
+			},{
+				"name":"storage.type.ecmaenhanced",
+				"match": "\\b(enum|struct|function|trait|extension|let)\\b"
+			}]
+		},
+		"numbers":{
+
+			"patterns": [{
+				"name":"constant.numeric.ecmaenhanced",
+				"match": "\\b([0-9]+_?)+\\b"
+			}]
+		},
+		"classes":{
+			"patterns": [{
+				"name":"entity.name.class.ecmaenhanced",
+				"match": "\\b[A-Z][a-zA-Z0-9_]*\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.ecmaenhanced",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.ecmaenhanced",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.ee"
+}
