@@ -221,6 +221,32 @@ export class LanguageParser<T extends { "span": Span } = Statement> {
         }),
     ];
     static defaultPatterns: LanguagePattern<Statement>[] = [
+        new LanguagePattern("Loop", "loop #block-body", (ctx) => {
+            //A loop statement is just a while true loop. treat it as such
+            //create the true identifier
+            const ident_buffer = new Span(
+                "buffer://ident#true",
+                0,
+                4,
+                "true",
+                "true",
+            );
+            const expr: Statement = {
+                "type": "ident",
+                "ident": {
+                    "span": ident_buffer,
+                    "type": "ident",
+                },
+                "span": ident_buffer,
+            };
+            return {
+                "type": "while",
+                "expr": expr,
+                "body": LanguageParser.default(bracketBody(ctx["block-body"]))
+                    .statements(),
+            };
+        }),
+        
         new LanguagePattern(
             "Structured Data",
             "#type-name #block-body",
@@ -330,31 +356,7 @@ export class LanguageParser<T extends { "span": Span } = Statement> {
                 };
             },
         ),
-        new LanguagePattern("Loop", "loop #block-body", (ctx) => {
-            //A loop statement is just a while true loop. treat it as such
-            //create the true identifier
-            const ident_buffer = new Span(
-                "buffer://ident#true",
-                0,
-                4,
-                "true",
-                "true",
-            );
-            const expr: Statement = {
-                "type": "ident",
-                "ident": {
-                    "span": ident_buffer,
-                    "type": "ident",
-                },
-                "span": ident_buffer,
-            };
-            return {
-                "type": "while",
-                "expr": expr,
-                "body": LanguageParser.default(bracketBody(ctx["block-body"]))
-                    .statements(),
-            };
-        }),
+        
 
         new LanguagePattern(
             "struct",

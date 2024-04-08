@@ -329,6 +329,7 @@ export class GlobalImplementationRegistry {
             generics[fn.generics[i]] = withGenerics[i];
         }
         n.requiredReturnType = this.dissolveGenerics(fn.returnType, generics);
+        // console.log(n.name,n.requiredReturnType);
 
         for (const e of fn.def.args) {
             n.variables[e.ident.span.content()] = {
@@ -1306,7 +1307,7 @@ export class Scope {
 
                         // find_generics_by_matching(val.enum)
                         if (match_over_type.type !== "withGenerics") {
-                            throw "joe bidden";
+                            // throw "joe bidden";
                         }
                         let o: Record<string, EEType> = {};
                         for (let i = 0; i < val.enum.generics.length; ++i) {
@@ -1732,7 +1733,7 @@ const compilationTable: {
         sub_scope.parent = scope;
         sub_scope.init(stm.body);
         return `while(${compileStatement(stm.expr, scope)}){${
-            compileStatements(stm.body, scope)
+            compileStatements(stm.body, sub_scope)
         }}`;
     },
     //TODO: range iterator etc
@@ -1785,7 +1786,9 @@ const compilationTable: {
                 subscope.variables[n] = { "type": fn.fn.parameters[i] };
                 i += 1;
             }
+            subscope.requiredReturnType = fn.fn.returnType;
             subscope.init(fn.fn.def.body);
+            // console.log(subscope.name,fn.fn.returnType);
             rtn += `function ${
                 stm["global-type-registry"] ? "implementation" : "extension"
             }_${n}_${fn_name}(${
