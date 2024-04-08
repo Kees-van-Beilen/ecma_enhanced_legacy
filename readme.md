@@ -8,7 +8,7 @@ deno install -A -n eec ./cli.ts
 ```
 or install from the repo
 ```bash
-deno install -A -n eec https://raw.githubusercontent.com/Kees-van-Beilen/ecma_enhanced_legacy/11901fadaaa5eb01b2badfda02553e147ebb74af/cli.ts
+deno install -A -n eec https://raw.githubusercontent.com/Kees-van-Beilen/ecma_enhanced_legacy/1d31632d15ad81128a188bb1f25936fd41ba3ef8/cli.ts
 ```
 
 Running a file:
