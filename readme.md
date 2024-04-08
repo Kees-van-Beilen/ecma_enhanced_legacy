@@ -117,6 +117,10 @@ loop {
     }
 }
 ```
+This file can be ran using 
+```sh
+eec --lib ./std/mod.ee lang.ee
+```
 
 
 There also is a small language server, that requires some manual setup to get working. If you want to use the language server, then in `lsp-lite.ts` set `const std_lib:undefined|string` equal to the absolute path of your `./std/mod.ee` file. Afterwards, in `vscode-extension/ecmaenhanced/index.js` modify `const lsp_abs_path = "/path/to/lsp-lite.ts";` to point to the absolute path of `lsp-lite.ts`.
