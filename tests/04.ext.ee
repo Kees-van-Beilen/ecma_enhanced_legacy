@@ -1,0 +1,9 @@
+extension string {
+
+    function split(self:string,pat:string):string{
+        console.log("called split for:",self,pat)
+    }
+}
+
+
+console.log("my,string".split(","));

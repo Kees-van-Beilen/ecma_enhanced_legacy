@@ -1,0 +1,18 @@
+struct Person {
+    name:string,
+    age:int
+}
+
+let me = Person {
+    name:"Kees",
+    age:18
+}
+
+
+implement Person {
+    function greet(self:Person):void{
+        console.log("hello",self.name)
+    }
+}
+
+me.greet();

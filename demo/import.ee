@@ -1,0 +1,9 @@
+import * from "./add.ee";
+
+//!compiler.builtin
+//!unsafe.js.anyArgs
+//!compiler.export
+function builtin_type():void{}
+
+console.log("hello world");
+add(8,5)

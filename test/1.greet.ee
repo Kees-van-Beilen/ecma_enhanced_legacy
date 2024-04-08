@@ -1,0 +1,9 @@
+
+
+
+let name = prompt("Enter your name:");
+
+match(name){
+    Option.Some(str) => console.log("hello",str),
+    Option.None => console.log("you didn't enter a name"),
+}

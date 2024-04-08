@@ -1,0 +1,15 @@
+import * as console from "./console.ee"
+
+//!compiler.builtin
+//!unsafe.js.anyArgs
+export function builtin_type():void{}
+
+//!compiler.builtin
+export function builtin_panic_handler():void{}
+
+export enum Never {}
+
+export function panic(msg:string):Never{
+    console.error(msg);
+    builtin_panic_handler();
+}

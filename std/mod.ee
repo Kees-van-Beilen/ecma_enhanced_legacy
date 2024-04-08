@@ -1,0 +1,8 @@
+//!documentation("A safe wrapper around the JavaScript console api")
+export * as console from "./console.ee";
+export * from "./js/alert.ee";
+export * from "./option.ee";
+export * from "./string.ee";
+export * from "./builtin.ee"
+
+

@@ -1,0 +1,29 @@
+import * from "./option.ee";
+
+export extension string {
+    //!documentation("The at() method of String values takes an integer value and returns a new String consisting of the single UTF-16 code unit located at the specified offset. This method allows for positive and negative integers. Negative integers count back from the last string character.")
+    //!compiler.builtin
+    function at(self:string,index:int):Option<string> { }
+
+    //!documentation("The charAt() method of String values returns a new string consisting of the single UTF-16 code unit at the given index.")
+    //!compiler.builtin
+    function charAt(self:string,index:int):string { }
+
+    //!documentation("The charCodeAt() method of String values returns an integer between 0 and 65535 representing the UTF-16 code unit at the given index.")
+    //!compiler.builtin
+    function charCodeAt(self:string,index:int):int { }
+
+    //!documentation("he codePointAt() method of String values returns a non-negative integer that is the Unicode code point value of the character starting at the given index. Note that the index is still based on UTF-16 code units, not Unicode code points.")
+    //!compiler.builtin
+    function codePointAt(self:string,index:int):Option<int> { }
+
+    //!documentation("The concat() method of String values concatenates the string arguments to this string and returns a new string.")
+    //!compiler.builtin
+    function concat(self:string,rhs:string):string { }
+
+    //!documentation("The endsWith() method of String values determines whether a string ends with the characters of this string, returning true or false as appropriate.")
+    //!compiler.builtin
+    function endsWith(self:string,sub_string:string):bool { }
+
+    
+}

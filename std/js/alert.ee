@@ -1,0 +1,7 @@
+import * from "../option.ee";
+
+
+//!compiler.builtin
+export function prompt(message:string):Option<string>{
+
+}

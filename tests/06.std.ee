@@ -1,0 +1,6 @@
+let someStr = prompt("What's your name")
+let other = someStr.unwrap();
+
+console.log("Hello, ",other)
+
+
